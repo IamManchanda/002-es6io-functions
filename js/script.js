@@ -2,17 +2,9 @@
  * JavaScript
  */
 
-const box = document.querySelector('.box');
-box.addEventListener('click', function() {
-  let first = 'opening';
-  let second = 'open';
+function calculateBill(total, tax = 0.18, tip = 0.13) {
+  return total + (total * tax) + (total * tip);
+}
 
-  if (this.classList.contains(first)) {
-    [first, second] = [second, first];
-  }
-
-  this.classList.toggle(first);
-  setTimeout(() => {
-    this.classList.toggle(second);
-  }, 500)
-});
+const totalBill = calculateBill(100, undefined, 0.12);
+console.log(totalBill);
