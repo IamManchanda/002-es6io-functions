@@ -2,17 +2,17 @@
  * JavaScript
  */
 
-const race = '100m Dash';
-const winners = ['Hunter Gath', 'Singa Song', 'Imda Bos'];
+const box = document.querySelector('.box');
+box.addEventListener('click', function() {
+  let first = 'opening';
+  let second = 'open';
 
-const win = winners.map((winner, index) => ({
-  name: winner,
-  race,
-  place: index + 1,
-}));
+  if (this.classList.contains(first)) {
+    [first, second] = [second, first];
+  }
 
-console.table(win);
-
-const ages = [23, 62, 45, 234, 2, 62, 234, 62, 34];
-const old = ages.filter(age => age >= 60);
-console.log(old);
+  this.classList.toggle(first);
+  setTimeout(() => {
+    this.classList.toggle(second);
+  }, 500)
+});
